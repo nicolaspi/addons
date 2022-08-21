@@ -27,7 +27,7 @@ jobs:
         # To switch on windows-2022/latest, please verify the bazel version:
         # https://github.com/bazelbuild/bazel/issues/14232#issuecomment-1011247429
         os: ['macos-11']
-        py-version: ['3.10']
+        py-version: ['3.10.5']
         tf-version: ['2.9.1']
         cpu: ['arm64']
         exclude:
@@ -59,7 +59,3 @@ jobs:
           CPU: ${{ matrix.cpu }}
         shell: bash
         run: bash .github/workflows/make_wheel_${OS}_${CPU}.sh
-      - uses: actions/upload-artifact@v1
-        with:
-          name: ${{ runner.os }}-${{ matrix.py-version }}-tf${{ matrix.tf-version }}-${{ matrix.cpu }}-wheel
-          path: wheelhouse
