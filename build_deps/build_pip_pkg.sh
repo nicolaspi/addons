@@ -93,16 +93,6 @@ function main() {
   else
     $PYTHON ${BUILD_CMD} ${NIGHTLY_FLAG} || true
   fi
-  if is_macos; then
-    otool -l tensorflow_addons/custom_ops/image/_distort_image_ops.so
-    brew install tree
-    tree ../../../../
-    echo environment:
-    echo $DYLD_LIBRARY_PATH
-    echo $DYLD_FALLBACK_LIBRARY_PATH
-    delocate-listdeps dist/*.whl
-    delocate-wheel -vv dist/*.whl
-  fi
   cp dist/*.whl "${DEST}"
   popd
   rm -rf ${TMPDIR}

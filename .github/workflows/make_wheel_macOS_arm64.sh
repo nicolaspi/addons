@@ -27,6 +27,11 @@ bazel build \
   build_pip_pkg
 
 bazel-bin/build_pip_pkg artifacts "--plat-name macosx_11_0_arm64 $NIGHTLY_FLAG"
+brew install tree
+tree ../../../
+echo environment
+echo $DYLD_LIBRARY_PATH
+echo $TF_SHARED_LIBRARY_DIR
 delocate-listdeps artifacts/*.whl
-# delocate-wheel -w wheelhouse -vv artifacts/*.whl
+delocate-wheel -w wheelhouse -vv artifacts/*.whl
 
