@@ -93,7 +93,9 @@ function main() {
   else
     $PYTHON ${BUILD_CMD} ${NIGHTLY_FLAG} || true
   fi
-
+  if is_macos; then
+    delocate-wheel -vv dist/*.whl
+  fi
   cp dist/*.whl "${DEST}"
   popd
   rm -rf ${TMPDIR}
