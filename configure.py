@@ -101,7 +101,7 @@ def get_shared_lib_name():
     namespec = tf.sysconfig.get_link_flags()
     if is_macos():
         # MacOS
-        return "lib" + namespec[1][2:] + ".bad.dylib"
+        return "lib" + namespec[1][2:] + ".dylib"
     elif is_windows():
         # Windows
         return "_pywrap_tensorflow_internal.lib"

@@ -10,9 +10,8 @@ cc_library(
 
 cc_library(
     name = "libtensorflow_framework",
-    srcs = ["%{TF_SHARED_LIBRARY_NAME}"],
+    srcs = ["%{TF_SHARED_LIBRARY_DIR}/%{TF_SHARED_LIBRARY_NAME}"],
     visibility = ["//visibility:public"],
 )
 
 %{TF_HEADER_GENRULE}
-%{TF_SHARED_LIBRARY_GENRULE}
