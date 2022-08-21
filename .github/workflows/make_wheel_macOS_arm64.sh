@@ -17,7 +17,6 @@ python -m pip install \
   tensorflow-macos==$TF_VERSION
 
 bazel build \
-  --subcommands \
   --cpu=darwin_arm64 \
   --copt -mmacosx-version-min=11.0 \
   --linkopt -mmacosx-version-min=11.0 \
@@ -28,5 +27,6 @@ bazel build \
   build_pip_pkg
 
 bazel-bin/build_pip_pkg artifacts "--plat-name macosx_11_0_arm64 $NIGHTLY_FLAG"
-delocate-wheel -w wheelhouse artifacts/*.whl
+delocate-listdeps artifacts/*.whl
+delocate-wheel -w wheelhouse -v artifacts/*.whl
 
