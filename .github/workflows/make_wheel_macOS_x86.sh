@@ -15,6 +15,8 @@ bazel clean
 # Build
 python configure.py
 
+export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:$(python -c 'import configure; print(configure.get_tf_shared_lib_dir())')
+
 bazel build \
   --copt -mmacosx-version-min=10.13 \
   --linkopt -mmacosx-version-min=10.13 \

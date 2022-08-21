@@ -29,7 +29,7 @@ jobs:
         os: ['macos-11']
         py-version: ['3.10']
         tf-version: ['2.9.1']
-        cpu: ['arm64']
+        cpu: ['arm64', 'x86']
         exclude:
           - py-version: '3.10'
             tf-version: '2.7.3'

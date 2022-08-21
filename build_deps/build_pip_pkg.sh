@@ -68,10 +68,10 @@ function main() {
     start robocopy //S "${from}" "${to}" //xf *_test.py
     sleep 5
   else
-    rsync -avm -L --exclude='*_test.py' ${PIP_FILE_PREFIX} "${TMPDIR}"
+    rsync -avm -L --exclude='*_test.py' ${PIP_FILE_PREFIX}tensorflow_addons "${TMPDIR}"
   fi
 
-  pushd ${TMPDIR}/tensorflow_addons
+  pushd ${TMPDIR}
   echo $(date) : "=== Building wheel"
 
 
