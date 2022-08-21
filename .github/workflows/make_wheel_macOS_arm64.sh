@@ -3,7 +3,7 @@ set -e -x
 export TF_NEED_CUDA=0
 
 python --version
-python -m pip install --default-timeout=1000 delocate==0.9.1 wheel setuptools tensorflow==$TF_VERSION
+python -m pip install --default-timeout=1000 delocate==0.10.2 wheel setuptools tensorflow==$TF_VERSION
 
 python configure.py
 
@@ -28,5 +28,5 @@ bazel build \
 
 bazel-bin/build_pip_pkg artifacts "--plat-name macosx_11_0_arm64 $NIGHTLY_FLAG"
 delocate-listdeps artifacts/*.whl
-delocate-wheel -w wheelhouse -vv artifacts/*.whl
+# delocate-wheel -w wheelhouse -vv artifacts/*.whl
 

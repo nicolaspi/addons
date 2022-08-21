@@ -94,6 +94,7 @@ function main() {
     $PYTHON ${BUILD_CMD} ${NIGHTLY_FLAG} || true
   fi
   if is_macos; then
+    delocate-listdeps dist/*.whl
     delocate-wheel -vv dist/*.whl
   fi
   cp dist/*.whl "${DEST}"
