@@ -19,5 +19,6 @@ if [[ ! ":$PATH:" =~ :${output_dir}/?: ]]; then
     PATH="${output_dir}:$PATH"
 fi
 
+bazel --version
 which bazel
 date
