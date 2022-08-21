@@ -85,7 +85,7 @@ setup(
     long_description="\n".join(DOCLINES[2:]),
     author="Google Inc.",
     author_email="opensource@google.com",
-    packages=find_packages(),
+    packages=find_packages(exclude=["tensorflow_addons.custom_ops"]),
     ext_modules=get_ext_modules(),
     install_requires=Path("requirements.txt").read_text().splitlines(),
     extras_require={
