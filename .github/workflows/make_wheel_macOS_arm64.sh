@@ -17,6 +17,7 @@ python -m pip install \
   tensorflow-macos==$TF_VERSION
 
 bazel build \
+  --subcommands \
   --cpu=darwin_arm64 \
   --copt -mmacosx-version-min=11.0 \
   --linkopt -mmacosx-version-min=11.0 \
