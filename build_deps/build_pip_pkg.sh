@@ -71,7 +71,7 @@ function main() {
     rsync -avm -L --exclude='*_test.py' ${PIP_FILE_PREFIX} "${TMPDIR}"
   fi
 
-  pushd ${TMPDIR}tensorflow_addons
+  pushd ${TMPDIR}/tensorflow_addons
   echo $(date) : "=== Building wheel"
 
 
