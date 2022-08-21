@@ -6,7 +6,7 @@ python --version
 python -m pip install --default-timeout=1000 delocate==0.10.2 wheel setuptools tensorflow==$TF_VERSION
 
 python configure.py
-export DYLD_LIBRARY_PATH=$(python -c 'import configure; print(configure.get_tf_shared_lib_dir())')
+export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:$(python -c 'import configure; print(configure.get_tf_shared_lib_dir())')
 
 # For dynamic linking, we want the ARM version of TensorFlow.
 # Since we cannot run it on x86 so we need to force pip to install it regardless
@@ -28,11 +28,6 @@ bazel build \
   build_pip_pkg
 
 bazel-bin/build_pip_pkg artifacts "--plat-name macosx_11_0_arm64 $NIGHTLY_FLAG"
-brew install tree
-tree -l .
-echo environment
-
-echo $DYLD_LIBRARY_PATH
 delocate-listdeps artifacts/*.whl
 delocate-wheel -w wheelhouse -vv artifacts/*.whl
 
